@@ -5,6 +5,7 @@ import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
+import com.dawinder.btnjc.nav.NavItem
 
 /**
  * Composable function that represents the main screen of the application.
@@ -14,7 +15,22 @@ import androidx.navigation.NavHostController
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun MainScreen(navController: NavHostController) {
-    Scaffold(bottomBar = {
-        BottomAppBar { BottomNavigationBar(navController = navController) }
-    }) { NavigationScreens(navController = navController) }
+
+    val navItems = listOf(NavItem.Home, NavItem.Search, NavItem.List, NavItem.Profile)
+
+    Scaffold(
+        bottomBar = {
+            BottomAppBar {
+                BottomNavigationBar(
+                    navController = navController,
+                    navItems = navItems
+                )
+            }
+        }
+    ) {
+        NavigationScreens(
+            navController = navController,
+            navItems = navItems
+        )
+    }
 }

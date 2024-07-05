@@ -10,7 +10,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.navigation.NavHostController
-import com.dawinder.btnjc.nav.NavItem
+import com.dawinder.btnjc.nav.Item
 
 /**
  * Composable function that represents the bottom navigation bar of the application.
@@ -18,8 +18,7 @@ import com.dawinder.btnjc.nav.NavItem
  * @param navController The navigation controller used for handling navigation between screens.
  */
 @Composable
-fun BottomNavigationBar(navController: NavHostController) {
-    val navItems = listOf(NavItem.Home, NavItem.Search, NavItem.List, NavItem.Profile)
+fun BottomNavigationBar(navController: NavHostController, navItems: List<Item>) {
     var selectedItem by rememberSaveable { mutableStateOf(0) }
 
     NavigationBar {
